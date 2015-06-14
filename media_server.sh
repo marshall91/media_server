@@ -6,7 +6,7 @@
 apt-get update
 
 # Install vim
-apt-get install vim
+apt-get -y install vim
 
 # Mount the drive
 apt-get install -y ntfs-3g
@@ -16,19 +16,19 @@ chmod 775 /mnt
 # Install MiniDLNA
 apt-get install -y minidlna
 # copy the new dlna config
-cp /mnt/PiConf/minidlna.conf /etc/minidlna.conf
+cp /var/tmp/minidlna.conf /etc/minidlna.conf
 minidlna -R
 service minidlna restart
 
 # Install Samba
 apt-get install -y samba samba-common-bin
 # copy new Samba config
-cp /mnt/PiConf/smb.conf /etc/samba/smb.conf
+cp /var/tmp/smb.conf /etc/samba/smb.conf
 service samba restart
 
 # Install Transmission
 apt-get install -y transmission-daemon
 service transmission-daemon stop
 # copy new Transmission config
-cp /mnt/PiConf/settings.json /etc/transmission-daemon/settings.json
+cp /var/tmp/settings.json /etc/transmission-daemon/settings.json
 service transmission-daemon start
