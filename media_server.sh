@@ -12,6 +12,7 @@ apt-get -y install vim
 apt-get install -y ntfs-3g
 mount /dev/sda1 /mnt
 chmod 775 /mnt
+echo "/dev/sda1    /mnt        ntfs    defaults      0       0" >> /etc/fstab
 
 # Install MiniDLNA
 apt-get install -y minidlna
