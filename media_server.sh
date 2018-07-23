@@ -12,20 +12,19 @@ apt-get -y install vim
 apt-get install -y ntfs-3g
 mount /dev/sda1 /mnt
 chmod 775 /mnt
-echo "/dev/sda1    /mnt        ntfs    defaults      0       0" >> /etc/fstab
 
 # Install MiniDLNA
 apt-get install -y minidlna
 # copy the new dlna config
 cp /var/tmp/minidlna.conf /etc/minidlna.conf
-minidlna -R
+minidlnad -R
 service minidlna restart
 
 # Install Samba
 apt-get install -y samba samba-common-bin
 # copy new Samba config
 cp /var/tmp/smb.conf /etc/samba/smb.conf
-service samba restart
+service smbd restart
 
 # Install Transmission
 apt-get install -y transmission-daemon
